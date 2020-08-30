@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs'); %>
+<div id="exemples">
+    <h1><%= title %></h1>
+
+    <% if (locals.backend && backend.length > 0) {%>
+    <h2>Backend</h2>
+    <ol type="I">
+        <% for(let i = 0; i < backend.length; i++) {%>
+        <li><%= backend[i] %></li>
+        <% }%>
+    </ol>
+    <% }%>
+
+    <% if (locals.frontend) {%>
+    <h2>Front End</h2>
+    <ol type="I">
+        <li><%= frontend.markup || "HTML" %></li>
+        <li><%= frontend.style || "CSS" %></li>
+        <li><%= frontend.script || "JS" %></li>
+        <li>
+            Frameworks
+            <ol>
+                <li><%= frontend.frameworks.css || "No CSS framwork" %></li>
+                <li><%= frontend.frameworks.spa || "No SPA framwork" %></li>
+            </ol>
+        </li>
+    </ol>
+    <% }%>
+</div>
+
+
+<%- include('partials/footer.ejs'); %>
